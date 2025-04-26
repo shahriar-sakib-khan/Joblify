@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 import mongoose from "mongoose";
+import { validateJobInput } from "./middleware/validationMiddleware.js";
 
 // <============================> Routers <============================>
 import jobRouter from "./routes/jobRouter.js";
@@ -22,11 +23,6 @@ if (process.env.NODE_ENV === "development") {
 
 app.get("/", (req, res) => {
   res.send("hello world");
-});
-
-app.post("/", (req, res) => {
-  console.log(req);
-  res.json({ message: "Data received" });
 });
 
 // <============================> JOB_ROUTER <============================>
