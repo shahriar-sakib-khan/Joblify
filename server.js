@@ -7,6 +7,7 @@ import { validateJobInput } from "./middleware/validationMiddleware.js";
 
 // <============================> Routers <============================>
 import jobRouter from "./routes/jobRouter.js";
+import authRouter from "./routes/authRouter.js";
 
 // <============================> Middlewares <============================>
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
 // <============================> JOB_ROUTER <============================>
 
 app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/auth", authRouter);
 
 // <============================> ERROR <============================>
 

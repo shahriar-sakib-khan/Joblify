@@ -1,30 +1,30 @@
-import JobModel from "../models/JobModel.js";
-import { NotFoundError } from "../errors/customError.js";
 import { StatusCodes } from "http-status-codes";
+
+import Job from "../models/JobModel.js";
 
 // <============================>  <============================>
 
 export const getAllJobs = async (req, res) => {
-  const jobs = await JobModel.find({});
+  const jobs = await Job.find({});
   res.status(200).json({ msg: "all jobs!", jobs });
 };
 
 export const getJob = async (req, res) => {
   const { id } = req.params;
-  const job = await JobModel.findById(id);
+  const job = await Job.findById(id);
 
   res.status(StatusCodes.OK).json({ msg: "job you searched for!", job });
 };
 
 export const createJob = async (req, res) => {
-  const job = await JobModel.create(req.body);
+  const job = await Job.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ msg: "job created!", job });
 };
 
 export const updateJob = async (req, res) => {
   const { id } = req.params;
-  const updatedJob = await JobModel.findByIdAndUpdate(id, req.body, {
+  const updatedJob = await Job.findByIdAndUpdate(id, req.body, {
     new: true,
   });
 
@@ -33,7 +33,7 @@ export const updateJob = async (req, res) => {
 
 export const deleteJob = async (req, res) => {
   const { id } = req.params;
-  const deletedJob = await JobModel.findByIdAndDelete(id);
+  const deletedJob = await Job.findByIdAndDelete(id);
 
   res.status(StatusCodes.OK).json({ msg: "job deleted!", job: deletedJob });
 };

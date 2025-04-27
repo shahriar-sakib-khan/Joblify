@@ -1,6 +1,8 @@
 import { Router } from "express";
 const router = Router();
 
+// <============================> Controllers <============================>
+
 import {
   getAllJobs,
   getJob,
@@ -8,6 +10,8 @@ import {
   updateJob,
   deleteJob,
 } from "../controllers/jobController.js";
+
+// <============================> Middle-Wares <============================>
 
 import {
   validateJobInput,
