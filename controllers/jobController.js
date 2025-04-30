@@ -5,7 +5,7 @@ import Job from "../models/JobModel.js";
 // <============================>  <============================>
 
 export const getAllJobs = async (req, res) => {
-  const jobs = await Job.find({});
+  const jobs = await Job.find({ createdBy: req.user.userId });
   res.status(200).json({ msg: "all jobs!", jobs });
 };
 
@@ -17,6 +17,7 @@ export const getJob = async (req, res) => {
 };
 
 export const createJob = async (req, res) => {
+  req.body.createdBy = req.user.userId;
   const job = await Job.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ msg: "job created!", job });

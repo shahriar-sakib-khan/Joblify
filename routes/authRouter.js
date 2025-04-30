@@ -3,7 +3,7 @@ const router = Router();
 
 // <============================> Controllers <============================>
 
-import { register, login } from "../controllers/authControllers.js";
+import { register, login, logout } from "../controllers/authController.js";
 
 // <============================> Middle-wares <============================>
 
@@ -16,5 +16,6 @@ import {
 
 router.post("/register", validateRegistrationInput, register);
 router.post("/login", validateLoginInput, login);
+router.get("/logout", logout);
 
 export default router;
