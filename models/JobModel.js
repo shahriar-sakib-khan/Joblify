@@ -24,7 +24,7 @@ const JobSchema = new mongoose.Schema(
       ref: "user",
     },
   },
-
+  
   { timestamps: true }
 );
 
