@@ -18,6 +18,7 @@ import {
 // <============================> Actions <============================>
 import { action as registerAction } from "./pages/Register";
 import { action as loginAction } from "./pages/Login";
+import { action as addJobsAction } from "./pages/AddJob";
 
 // <============================> Loaders <============================>
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <AddJob />,
+            action: addJobsAction,
           },
           { path: "stats", element: <Stats /> },
           {
